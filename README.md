@@ -1,6 +1,6 @@
 # Product provider backend dalis (RESTful)
 
-Sukurta prodūktų siūlytojo back-end dalis, kuri pasiūlo klientui banko produktus, įvertinus kliento pateikta informaciją
+Sukurta prodūktų siūlytojo back-end dalis, kuri pasiūlo klientui banko produktus, įvertinus kliento pateiktą informaciją
 
 
 ### Back-end
