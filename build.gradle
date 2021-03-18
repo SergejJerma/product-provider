@@ -1,0 +1,68 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.9.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'idea'
+	id 'groovy'
+	id 'jacoco'
+}
+
+group = 'com.serjer'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+idea {
+	module {
+		testSourceDirs += file('src/test/groovy')
+	}
+}
+
+bootJar {
+	launchScript()
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+	}
+	afterEvaluate {
+		classDirectories.from = files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: [
+					'**/*com/serjer/ProductProviderApplication.class',
+					'com/serjer/ProductProviderApplication.java',
+					'com/serjer/ProductProviderApplication.*',
+			])
+		})
+	}
+}
+
+test.finalizedBy jacocoTestReport
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	compile 'io.springfox:springfox-swagger2:2.9.2'
+	compile 'io.springfox:springfox-swagger-ui:2.9.2'
+	testCompile 'org.spockframework:spock-core:1.3-groovy-2.5'
+	testCompile 'org.spockframework:spock-spring:1.3-groovy-2.5'
+	testCompile 'org.codehaus.groovy:groovy-all:2.5.8'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
