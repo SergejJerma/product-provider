@@ -10,6 +10,10 @@ Spring Boot
 Gradle
 Lombok 
 ```
+### Front-end
+```
+Angular
+```
 
 ## Klasės
 Programoje yra dvi POJO klasės - Product, ClientRequst bei enum'ai EProduct, EAgeGroup, EIncomeGroup.
