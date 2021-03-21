@@ -14,8 +14,6 @@ Lombok
 ```
 Angular
 ```
-![alt text](https://github.com/SergejJerma/product-provider/blob/master/frontend_form.jpg)
-
 ## Klasės
 Programoje yra dvi POJO klasės - Product, ClientRequst bei enum'ai EProduct, EAgeGroup, EIncomeGroup.
 
