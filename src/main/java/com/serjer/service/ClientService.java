@@ -1,11 +1,13 @@
 package com.serjer.service;
 
 import com.serjer.model.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class ClientService {
 
@@ -46,6 +48,22 @@ public class ClientService {
             products.add(new Product(EProduct.CC.getName()));
         }
 
+        countProducts(products);
+
         return products;
+    }
+
+    private void countProducts(List<Product> products) {
+        var cardProductsCount = 0L;
+        if (!products.isEmpty()) {
+           cardProductsCount = products
+                   .stream()
+                   .filter(p -> p.getName().toLowerCase().contains("card"))
+                   .count();
+        }
+        log.info("{} products were selected: {} card products and {} account products",
+                products.size(),
+                cardProductsCount,
+                products.size() - cardProductsCount);
     }
 }
