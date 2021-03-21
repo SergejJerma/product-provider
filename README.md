@@ -16,7 +16,7 @@ Programoje yra dvi POJO klasės - Product, ClientRequst bei enum'ai EProduct, EA
 
 ## Veikimas
 Servisas paleidžiamas iš .jar failo
-* [product-provider-0.0.1-SNAPSHOT.jar](https://github.com/SergejJerma/product-provider/blob/master/product-provider-0.0.1-SNAPSHOT.jar) 
+* [product-provider-0.0.1-SNAPSHOT.jar](https://github.com/SergejJerma/product-provider/blob/master/product-provider-0.0.1-SNAPSHOT.zip) 
 ```
 java -jar product-provider-0.0.1-SNAPSHOT.jar
 ```
